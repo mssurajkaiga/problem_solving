@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 using namespace std;
 
 int main()
@@ -14,10 +15,25 @@ int main()
 	}
 
 	for (i=0; i <T; i++) {
-		for (j=1; j<a[i]; j++){
-			if (a[i]%j==0) {
-				sum[i] += j;
+		if (a[i]%2!=0) {
+			for (j=3; j<=sqrt(a[i]); j+=2){
+				if (a[i]%j==0) {
+					sum[i] += j;
+					sum[i] += (a[i]/j);
+				}
 			}
+		}
+		else {
+			for (j=2; j<=sqrt(a[i]); j++){
+				if (a[i]%j==0) {
+					sum[i] += j;
+					sum[i] += (a[i]/j);
+				}
+			}
+		}
+		sum[i] +=1;
+		if (sqrt(a[i]) == floor(sqrt(a[i]))) {
+			sum[i] -= sqrt(a[i]);
 		}
 	}
 
