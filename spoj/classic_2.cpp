@@ -4,13 +4,9 @@ using namespace std;
 
 int checkPrime(long a) {
 	if (a==1) return 0;
+	if (a==2) return 1;
 	if (a%2==0) {
-		for (long i=2; i<=sqrt(a); i++) {
-			if (a%i==0) {
-				return 0;
-			}
-		}
-		return 1;
+		return 0;
 	}
 	else {
 		for (long i=3; i<=sqrt(a); i+=2) {
