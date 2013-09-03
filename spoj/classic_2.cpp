@@ -1,9 +1,10 @@
 #include <iostream>
+#include <math.h>
 using namespace std;
 
 int checkPrime(long a) {
 	if (a==1) return 0;
-	for (long i=2; i<a; i++) {
+	for (long i=2; i<=sqrt(a); i++) {
 		if (a%i==0) {
 			return 0;
 		}
