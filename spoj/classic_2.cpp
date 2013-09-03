@@ -4,15 +4,25 @@ using namespace std;
 
 int checkPrime(long a) {
 	if (a==1) return 0;
-	for (long i=2; i<=sqrt(a); i++) {
-		if (a%i==0) {
-			return 0;
+	if (a%2==0) {
+		for (long i=2; i<=sqrt(a); i++) {
+			if (a%i==0) {
+				return 0;
+			}
 		}
+		return 1;
 	}
-	return 1;
+	else {
+		for (long i=3; i<=sqrt(a); i+=2) {
+			if (a%i==0) {
+				return 0;
+			}
+		}
+		return 1;	
+	}
 }
 
-int main() 
+int main()
 {
 	int t, i, j;
 	long *m, *n;
