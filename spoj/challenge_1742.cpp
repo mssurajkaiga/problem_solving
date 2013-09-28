@@ -1,0 +1,5 @@
+#include <iostream>
+#include <string>
+#include <stdlib.h>
+using namespace std;
+string c(""),u("COMPILE ERROR");char m[32768];int k;void run(int z,int x){int j=0;for(int i=z;i<x;i++){switch(c[i]){case'>':k++;k%=32768;break;case'<':k--;if(k<0)k=32767;break;case'+':m[k]++;if(m[k]>255)m[k]=0;break;case'-':m[k]--;if(m[k]<0)m[k]=255;break;case'.':cout<<m[k];break;case'[':for(j=i+1;c[j]!=']';j++){if(j>=x){cout<<u;exit(0);}}if(m[k]>0){run(i+1,j);i--;}else{i=j;}break;case']':cout<<u;exit(0);break;default:break;}}}int main(){string t;for(k=0;k<32768;k++)m[k]=0;k=0;int o=0,l=0;ios_base::sync_with_stdio(false);while(cin){t="";getline(cin,t);for(int i=0;i<t.size();i++){if(t[i]=='%'){t.erase(t.begin()+i,t.end());}else if(t[i]=='[')o++;else if(t[i]==']')l++;}c.append(t);}if(o!=l){cout<<u;exit(0);}run(0,c.size());return 0;}
