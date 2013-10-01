@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
-#define z break;
-#define r case
-using namespace std;string c(""),l(0,32768);int k=0;int e(){cout<<"COMPILE ERROR";exit(0);}int f(int s,int v){int j;for(int i=s;i<v;i++)switch(c[i]){r'>':++k%=32768;z r'<':if(--k<0)k=32767;z r'+':if(++l[k]>255)l[k]=0;z r'-':if(--l[k]<0)l[k]=255;z r'.':cout<<l[k];z r'[':for(j=i+1;c[j]!=']';j++);if(l[k]>0)f(i--+1,j);else i=j;z r']':e();}}int main(){string b;int o=0,x=0,i;while(cin){b="";getline(cin,b);for(i=0;i<b.size();i++){if(b[i]=='%')b.resize(i);else b[i]=='['?o++:b[i]==']'?x++:0;}c.append(b);}if(o!=x)e();f(0,c.size());}
+#define c case
+#define v int
+#define b break;
+using namespace std;string x(""),m(0,32768);v k=0;v e(){cout<<"COMPILE ERROR";exit(0);}v r(v s,v a){v j;for(v i=s;i<a;i++)switch(x[i]){c'>':++k%=32768;b c'<':if(--k<0)k=32767;b c'+':if(++m[k]>255)m[k]=0;b c'-':if(--m[k]<0)m[k]=255;b c'.':cout<<m[k];b c'[':for(j=i+1;x[j]!=']';j++);if(m[k]>0)r(i--+1,j);else i=j;b c']':e();}}v main(){string t;v o=0,i=0;while(getline(cin,t)){for(i=0;char l=t[i];i++)l==91?o++:l==93?o--:l==37?t[i--]=0:0;x.append(t,0,i);}if(o)e();r(0,x.size());}
